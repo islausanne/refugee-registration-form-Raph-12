@@ -8,6 +8,7 @@
      <th>Country</th>
      <th>Age</th>
        <th>Gender</th>
+       <th>Date of Birth</th>
    </tr>
    {% for person in registrations %}
      <tr>
@@ -15,6 +16,7 @@
        <td>{{ person.country }}</td>
        <td>{{ person.age }}</td>
          <td>{{ person.gender }}</td>
+         <td>{{ person.date_of_birth }}</td>
      </tr>
    {% endfor %}
  </table>

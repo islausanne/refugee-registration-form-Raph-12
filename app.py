@@ -1,9 +1,6 @@
 import json
 import os
-from flask import Flask, render_template, request, redirect, url_for, flash
-
-
-
+from flask import Flask, render_template, request, redirect, url_for, flash, session
 
 app = Flask(__name__)
 app.secret_key = 'supersecretkey'  # Needed for flash messages
@@ -28,6 +25,32 @@ def submit_form():
    country = request.form['country']
    age = request.form['age']
    gender = request.form['gender']
+   date_of_birth = request.form['date_of_birth']
+
+
+
+   session['name'] = name
+   session['country'] = country
+   session['age'] = age
+   session['gender'] = gender
+   session['date_of_birth'] = date_of_birth
+
+   if not name or not country or not age or not gender:
+       flash('Please fill in all fields')
+       return redirect(url_for('register'))
+
+   if not country.isalpha():
+        flash('Please enter a country')
+        return redirect(url_for('register'))
+
+   if not age.isnumeric():
+        flash('Please enter an age')
+        return redirect(url_for('register'))
+
+   if not gender.isalpha():
+        flash('Please enter a gender')
+        return redirect(url_for('register'))
+
 
 
    # Check if file exists
@@ -56,8 +79,6 @@ def view_registrations():
        data = json.load(file)
    return render_template('view.html', registrations=data)
 
-
-   return render_template('view.html', registrations=[])
 
 
 if __name__ == '__main__':
