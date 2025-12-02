@@ -2,24 +2,45 @@
 {% block content %}
 <h2>Registered Refugees</h2>
 {% if registrations %}
+<style>
+    table {
+    font-size: 18px;
+    }
+</style>
+<div id="test">
+
  <table>
    <tr>
-     <th>Name</th>
+     <th>First Name</th>
+       <th>Last Name </th>
      <th>Country</th>
      <th>Age</th>
        <th>Gender</th>
        <th>Date of Birth</th>
+       <th>Nationality</th>
+       <th>Medical Info</th>
+       <th>Family Info</th>
+       <th>Email</th>
+       <th>Phone</th>
+
    </tr>
    {% for person in registrations %}
      <tr>
-       <td>{{ person.name }}</td>
+       <td>{{ person.first_name }}</td>
+         <td>{{ person.last_name}}</td>
        <td>{{ person.country }}</td>
        <td>{{ person.age }}</td>
          <td>{{ person.gender }}</td>
          <td>{{ person.date_of_birth }}</td>
+         <td>{{ person.nationality }}</td>
+         <td>{{ person.medical_information }}</td>
+         <td>{{ person.family_information }}</td>
+         <td>{{ person.email }}</td>
+         <td>{{ person.phone }}</td>
      </tr>
    {% endfor %}
  </table>
+    </div>
 {% else %}
  <p>No registrations found yet.</p>
 {% endif %}

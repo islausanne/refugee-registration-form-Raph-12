@@ -24,21 +24,32 @@ def register():
 # Handle form submission (students will add JSON save code here)
 @app.route('/submit', methods=['POST'])
 def submit_form():
-   name = request.form['name']
+   first_name = request.form['first_name']
+   last_name = request.form['last_name']
    country = request.form['country']
    age = request.form['age']
    gender = request.form['gender']
    date_of_birth = request.form['date_of_birth']
+   email = request.form['email']
+   phone = request.form['phone']
+   nationality = request.form['nationality']
+   medical_information = request.form['medical_information']
+   family_information = request.form['family_information']
 
 
-
-   session['name'] = name
+   session['first_name'] = first_name
+   session['last_name'] = last_name
    session['country'] = country
    session['age'] = age
    session['gender'] = gender
    session['date_of_birth'] = date_of_birth
+   session['nationality'] = nationality
+   session['email'] = email
+   session['phone'] = phone
+   session['medical_information'] = medical_information
+   session['family_information'] = family_information
 
-   if not name or not country or not age or not gender:
+   if not first_name or not last_name or not country or not age or not gender:
        flash('Please fill in all fields')
        return redirect(url_for('register'))
 
@@ -65,7 +76,17 @@ def submit_form():
 
 
    # Add the new registration
-   data.append({'name': name, 'country': country, 'age': age, 'gender': gender})
+   data.append({'first_name': first_name,
+                'last_name': last_name,
+                'country': country,
+                'age': age,
+                'gender': gender,
+                'date_of_birth': date_of_birth,
+                'nationality' : nationality,
+                'medical_information': medical_information,
+                'family_information': family_information,
+                'phone': phone,
+                'email': email})
 
 
    # Save all registrations back to the file
