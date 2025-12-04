@@ -4,7 +4,9 @@
 {% if registrations %}
 <style>
     table {
-    font-size: 18px;
+    font-size: 14px;
+    text-align: center;
+    width: 100%;
     }
 </style>
 <div id="test">
@@ -22,8 +24,10 @@
        <th>Family Info</th>
        <th>Email</th>
        <th>Phone</th>
+       <th>Skills</th>
 
    </tr>
+     <!--This loops through all the registrations and outputs all of them.-->
    {% for person in registrations %}
      <tr>
        <td>{{ person.first_name }}</td>
@@ -37,6 +41,7 @@
          <td>{{ person.family_information }}</td>
          <td>{{ person.email }}</td>
          <td>{{ person.phone }}</td>
+         <td>{{ person.skills }}</td>
      </tr>
    {% endfor %}
  </table>

@@ -47,5 +47,18 @@
     "age": "8",
     "gender": "male",
     "date_of_birth": "07/21/89"
+  },
+  {
+    "first_name": "Raphael",
+    "last_name": "Guillon",
+    "country": "Switzerland",
+    "age": "13",
+    "gender": "male",
+    "date_of_birth": "07/21/89",
+    "nationality": "dedea",
+    "medical_information": "ded",
+    "family_information": "dee",
+    "phone": "+41 078 400 8255",
+    "email": "elelstner@isl.ch"
   }
 ]
